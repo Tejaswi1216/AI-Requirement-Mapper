@@ -1,0 +1,7 @@
+id,requirement
+R1,The system should provide real-time shipment tracking.
+R2,Customers should receive notifications when deliveries are delayed.
+R3,Managers need a dashboard to monitor delivery performance.
+R4,The system should support route optimization.
+R5,Users should be able to manage their account information.
+R6,The system should calculate employee salaries.
