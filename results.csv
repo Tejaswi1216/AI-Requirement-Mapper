@@ -1,0 +1,7 @@
+Requirement ID,Requirement,Best Match,Best Score,Confidence,Status,Match 1,Score 1,Match 2,Score 2,Match 3,Score 3
+R1,The system should provide real-time shipment tracking.,Real-time shipment tracking,0.883,HIGH,MATCH,Real-time shipment tracking,0.883,Delivery notifications,0.403,Delivery analytics dashboard,0.389
+R2,Customers should receive notifications when deliveries are delayed.,Delivery notifications,0.78,HIGH,MATCH,Delivery notifications,0.78,Delivery analytics dashboard,0.401,Real-time shipment tracking,0.33
+R3,Managers need a dashboard to monitor delivery performance.,Delivery analytics dashboard,0.747,MEDIUM,MATCH,Delivery analytics dashboard,0.747,Delivery notifications,0.47,User management,0.41
+R4,The system should support route optimization.,Route optimization,0.75,MEDIUM,MATCH,Route optimization,0.75,Real-time shipment tracking,0.313,Delivery analytics dashboard,0.281
+R5,Users should be able to manage their account information.,User management,0.677,MEDIUM,MATCH,User management,0.677,Delivery analytics dashboard,0.217,Delivery notifications,0.169
+R6,The system should calculate employee salaries.,User management,0.26,LOW,REVIEW,User management,0.26,Delivery analytics dashboard,0.14,Route optimization,0.124

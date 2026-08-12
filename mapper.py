@@ -24,24 +24,41 @@ for i, requirement_embedding in enumerate(requirement_embeddings):
         capability_embeddings
     )[0]
 
-    best_index = scores.argmax()
+    top_indices = scores.argsort()[::-1][:3]
+
+    best_index = top_indices[0]
     best_score = scores[best_index]
 
-    if best_score >= 0.60:
+    if best_score >= 0.75:
+        confidence = "HIGH"
+        status = "MATCH"
+    elif best_score >= 0.60:
+        confidence = "MEDIUM"
         status = "MATCH"
     else:
+        confidence = "LOW"
         status = "REVIEW"
 
-    results.append({
+    result = {
         "Requirement ID": requirements.iloc[i]["id"],
         "Requirement": requirements.iloc[i]["requirement"],
         "Best Match": capabilities.iloc[best_index]["capability"],
-        "Similarity": round(float(best_score), 3),
+        "Best Score": round(float(best_score), 3),
+        "Confidence": confidence,
         "Status": status
-    })
+    }
+
+    for rank, index in enumerate(top_indices, start=1):
+        result[f"Match {rank}"] = capabilities.iloc[index]["capability"]
+        result[f"Score {rank}"] = round(float(scores[index]), 3)
+
+    results.append(result)
 
 results_df = pd.DataFrame(results)
 
+print("\nRequirement Mapping Results\n")
 print(results_df.to_string(index=False))
 
 results_df.to_csv("results.csv", index=False)
+
+print("\nResults saved to results.csv")
